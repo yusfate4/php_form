@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #edffec;
+  font-family: "open sans", sans-serif;
+}
+
+.container {
+  /* border: 2px solid red; */
+  width: 380px;
+  margin: 40px auto 0;
+  background-color: #fff;
+  padding: 40px;
+  box-sizing: border-box;
+  height: auto;
+  position: relative;
+  box-shadow: 0 0 10px rgba(150, 150, 150, 0);
+}
+
+.title {
+  position: absolute;
+  top: -10px;
+  background-color: #1cc5dc;
+  color: #542e71;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.title:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -10px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid #01a9a9;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid #01a9a9;
+}
+
+.sub-container {
+  padding-top: 30px;
+}
+
+.form {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.form .label {
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.form .input {
+  margin: 5px 0 0;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 2px solid #01c2c2;
+  color: #3e3e40;
+  font-size: 12px;
+  outline: none;
+  border-radius: 3px;
+}
+
+.btn {
+  width: 100%;
+  background: #01c2c2;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  border-radius: 4px;
+}
+
+::-webkit-input-placeholder {
+  text-transform: uppercase;
+  font-family: "open sans" sans-serif;
+}
+
