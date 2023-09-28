@@ -60,7 +60,7 @@ require 'form.php';
 
           <div class="form">
             <label class="label">Phone Number :</label>
-            <input type="number" class="input" name="number" value="<?php echo $number; ?>"/>
+            <input type="number" class="input number" name="number" value="<?php echo $number; ?>"/>
             <span class="error">* <?php echo $error_number; ?></span>
 
           </div>

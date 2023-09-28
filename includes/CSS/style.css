@@ -68,6 +68,11 @@ body {
   outline: none;
   border-radius: 3px;
 }
+/* 
+.form .input .number{
+  border: 3px solid red;
+  
+} */
 
 .btn {
   width: 100%;

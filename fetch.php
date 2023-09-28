@@ -18,7 +18,14 @@
         </thead>
         <tbody>
             <?php
-                $stmt = "SELECT * FROM users ORDER BY id DESC";
+                if (isset($_GET['page'])) {
+                    $page = (int)$_GET['page'];
+                }else{
+                    $page = 1;
+                }
+                $limit = 2;
+                $offset = ($page - 1) * $limit;
+                $stmt = "SELECT * FROM users ORDER BY id DESC LIMIT $offset, $limit";
                 $query = mysqli_query($conn, $stmt);
                 while ($user = mysqli_fetch_assoc($query)) {
             ?>
@@ -37,6 +44,26 @@
             ?>
         </tbody>
     </table>
+    <?php
+         $stmt = "SELECT * FROM users ORDER BY id DESC";
+         $query = mysqli_query($conn, $stmt);
+         $numrow = mysqli_num_rows($query);
+         if ($numrow > 0) {
+            $total_page = ceil($numrow / $limit);
+    ?>
+    <ul style="display:flex;list-style-type:none;justify-content:center;gap:20px;">
+      
+        <li><a href="?page=<?=$page-1;?>" <?=$page == 1 ? "hidden" : "";?>>Prev</a></li>
+        <?php
+        for ($i=1; $i < $total_page; $i++) { 
+            echo '<li><a href="?page='.$i.'">'.$i.'</a></li>';
+        }
+        ?>
+        <li><a href="?page=<?=$page+1;?>" <?=$page < $total_page ? "" : "hidden";?>>Next</a></li>
+    </ul>
+    <?php
+        }
+    ?>
     
 </body>
 </html>
