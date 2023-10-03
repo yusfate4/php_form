@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 100px;
+}
+/* Overall container styles */
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+/* Form title */
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Error message styles */
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+/* Form label styles */
+.label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Form input styles */
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Submit button styles */
+.btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Submit button hover effect */
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Sub-container styles */
+.sub-container {
+  margin-top: 20px;
+}
+
+/* Additional styling for messages */
+h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-align: center;
+}

@@ -1,7 +1,7 @@
 <?php
 
 // FILE UPLOAD
-$filedir = "uploads/";
+$filedir = "./uploads/";
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $file = $_FILES['fileupload']['name'];
     $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
