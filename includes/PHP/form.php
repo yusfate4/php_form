@@ -6,6 +6,7 @@ function test_input($data)
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;
+
 }
 
 $error_fname = $error_lname = $error_email = $error_password = $error_cpassword = $error_number = $error_form = "";
@@ -85,10 +86,11 @@ if (isset($_POST['submit'])) {
         if ($numrow > 0) {
             $error_number = "Number already exist";
         }
+
     }
 
     // FILE UPLOAD
-    $filedir = "./uploads/";
+    $filedir = "uploads/";
     $file = $_FILES['fileupload']['name'];
     $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
     $exttype = ['jpg', 'png', 'jpeg', 'gif'];
@@ -102,8 +104,6 @@ if (isset($_POST['submit'])) {
     } else {
         $filename = rand(0000, 9999) . "." . $ext;
         $target_file = $filedir . $filename;
-        $error_form = $target_file;
-        move_uploaded_file($_FILES['fileupload']['tmp_name'], "uploads/" . $file);
     }
 
 
@@ -115,15 +115,20 @@ if (isset($_POST['submit'])) {
         $query = mysqli_query($conn, $stmt);
         if ($query) {
 
-            move_uploaded_file($_FILES['fileupload']['tmp_name'], $target_file);
-            $msg = "Account created successfully";
-            header("Location:login.php");
+            if (move_uploaded_file($_FILES['fileupload']['tmp_name'], $target_file)) {
+                $msg = "Account created successfully";
+                  header("Location:  ./login.php");
 
-            $fname = $lname = $email = $password = $number = "";
+                $fname = $lname = $email = $password = $number = "";
+            } else {
+                $msg = "something went wrong";
+            }
         } else {
             $msg = "something went wrong " . mysqli_error($conn);
         }
+
     }
+
 }
 
 
@@ -179,9 +184,11 @@ if (isset($_POST['edit'])) {
     if ($query) {
         echo "Data updated successfully";
         $firstname = $lastname = $email = $phone_number = "";
+
     } else {
         echo "Something Went Wrong";
     }
+
 }
 
 // delete
@@ -235,6 +242,7 @@ if (isset($_POST['updatepwd'])) {
             echo "Something Went Wrong";
         }
     }
+
 }
 
 if (isset($_POST['login'])) {
@@ -253,11 +261,12 @@ if (isset($_POST['login'])) {
                 session_start();
                 $_SESSION['user'] = $user['id'];
                 header('location:welcome.php');
-            } else {
+            }else{
                 $msg = "Email or Password is invalid";
             }
         } else {
             $msg = "Email or Password is invalid";
         }
     }
+
 }
